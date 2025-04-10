@@ -44,7 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-  document.getElementById("play-btn").addEventListener("click", function () {
-    const video = document.getElementById("banner");
-    video.play();
+  window.addEventListener("load", function () {
+    const video = document.getElementById("bg-video");
+
+    // iOS Safari and some Android browsers need this trigger
+    video.muted = true;
+    video.playsInline = true;
+    video.autoplay = true;
+
+    // try to force play
+    video
+      .play()
+      .then(() => {
+        console.log("Video playing");
+      })
+      .catch((err) => {
+        console.warn("Autoplay failed, maybe user interaction is required", err);
+      });
   });
