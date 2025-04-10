@@ -44,3 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+  document.getElementById("play-btn").addEventListener("click", function () {
+    const video = document.getElementById("banner");
+    video.play();
+  });
