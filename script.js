@@ -34,10 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper('.slide-wrapper', {
     loop: true,
     spaceBetween: 25,
+    grabCursor:25,
   
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
+      clickable:true,
+      dynamicBullets: true,
     },
   
     // Navigation arrows
