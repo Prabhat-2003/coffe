@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (video) {
       video.muted = true;
       video.playsInline = true;
+      video.loop = true;
       video.setAttribute('playsinline', '');
       video.setAttribute('muted', '');
       video.setAttribute('autoplay', '');
