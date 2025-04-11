@@ -13,24 +13,49 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+  // window.addEventListener("load", function () {
+  //   const video = document.getElementById("bg-video");
+
+  //   if (video) {
+  //     video.muted = true;
+  //     video.playsInline = true;
+  //     video.setAttribute('playsinline', '');
+  //     video.setAttribute('muted', '');
+  //     video.setAttribute('autoplay', '');
+  //     video.load();
+  //   }
+  //   // try to force play
+  //   video
+  //     .play()
+  //     .then(() => {
+  //       console.log("Video playing");
+  //     })
+  //     .catch((err) => {
+  //       console.warn("Autoplay failed, maybe user interaction is required", err);
+  //     });
+  // });
   window.addEventListener("load", function () {
     const video = document.getElementById("bg-video");
-
-    // iOS Safari and some Android browsers need this trigger
-    video.muted = true;
-    video.playsInline = true;
-    video.autoplay = true;
-
-    // try to force play
-    video
-      .play()
-      .then(() => {
-        console.log("Video playing");
-      })
-      .catch((err) => {
-        console.warn("Autoplay failed, maybe user interaction is required", err);
-      });
+  
+    if (video) {
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('muted', '');
+      video.setAttribute('autoplay', '');
+      video.load();
+  
+      video
+        .play()
+        .then(() => {
+          console.log("Video playing");
+        })
+        .catch((err) => {
+          console.warn("Autoplay failed, maybe user interaction is required", err);
+        });
+    }
   });
+  
   const swiper = new Swiper('.slide-wrapper', {
     loop: true,
     spaceBetween: 25,
