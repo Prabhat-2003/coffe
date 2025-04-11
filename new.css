@@ -292,6 +292,22 @@
         font-size: var(--font-size-xl);
         color: #fff;
       }
+      .section-ti {
+        text-align: center;
+        padding: 60px 0 100px;
+        text-transform: uppercase;
+        font-size: var(--font-size-xl);
+        color: #000;
+      }
+      .section-ti::after{
+        content: "";
+        width: 80px;
+        height: 5px;
+        display:block;
+        margin: 10px auto 0;
+        border-radius: var(--border-radius-s);
+        background: var(--secondary-color);
+      }
       .section-titl::after{
         content: "";
         width: 80px;
@@ -326,6 +342,36 @@
         font-size: 0.95rem;
         color: #000;
       }
+      .menu-section .menu-list .menu-item .text{
+        font-size: var(--font-size-m);
+      }
+      /*Testimonals section*/
+      .test-section{
+        padding: 50px 0 100px;
+        background: var(--light-pink-color);
+      }
+       .testimonial{
+        display: flex;
+        padding: 35px;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      .user-image{
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        margin-bottom: 50px;
+        border-radius: var(--border-radius-circle);
+      }
+      .name{
+        margin-bottom: 16px;
+        font-size: var(--font-size-m);
+      }
+      .feedback{
+        line-height: 25px;
+        font-style: normal;
+      }
       @media screen and (max-width: 1024px) {
         .menu-section .menu-list{
           gap: 20px;
@@ -336,9 +382,7 @@
           margin: 0 auto;
         }
       }
-      .menu-section .menu-list .menu-item .text{
-        font-size: var(--font-size-m);
-      }
+      
       @media screen and (max-width: 900px) {
         :root {
           --font-size-m: 1rem;

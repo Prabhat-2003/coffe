@@ -1,34 +1,3 @@
-// // 
-// const menuOpenButton = document.querySelector("#menu-open-button");
-// const menuCloseButton = document.querySelector("#menu-close-button");
-// const body = document.body;
-
-// // Open menu
-// menuOpenButton.addEventListener("click", () => {
-//     document.body.classList.toggle("show-mobile-menu");
-// });
-
-// // // Close menu
-// // menuCloseButton.addEventListener("click", () => {
-// //     body.classList.remove("show-mobile-menu");
-// // });
-// // document.addEventListener("DOMContentLoaded", function () {
-// //     const menuOpenButton = document.querySelector("#menu-open-button");
-// //     const menuCloseButton = document.querySelector("#menu-close-button");
-// //     const body = document.body;
-
-// //     if (menuOpenButton && menuCloseButton) {
-// //         // Open menu
-// //         menuOpenButton.addEventListener("click", () => {
-// //             body.classList.add("show-mobile-menu");
-// //         });
-
-// //         // Close menu
-// //         menuCloseButton.addEventListener("click", () => {
-// //             body.classList.remove("show-mobile-menu");
-// //         });
-// //     }
-// // });
 document.addEventListener("DOMContentLoaded", function () {
     const menuOpenButton = document.querySelector("#menu-open-button");
     const menuCloseButton = document.querySelector("#menu-close-button");
@@ -62,3 +31,31 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("Autoplay failed, maybe user interaction is required", err);
       });
   });
+  const swiper = new Swiper('.slide-wrapper', {
+    loop: true,
+    spaceBetween: 25,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    //responsive breakpoints
+    breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 2
+    },
+    1024: {
+      slidesPerView: 3
+    }
+  }
+ });
+  
