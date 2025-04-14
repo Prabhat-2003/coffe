@@ -539,7 +539,7 @@ header {
 
   .nav-logo {
     position: absolute;
-    margin-left: -330px;
+    margin-left: -300px;
     max-width: 100%;
     overflow: hidden;
   }
