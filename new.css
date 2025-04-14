@@ -90,12 +90,9 @@ header {
 
 .navbar {
   display: flex;
-  padding: 20px 20px;
-  align-items: center;
   justify-content: space-between;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
+  align-items: center;
+  padding: 20px 20px;
 }
 
 .nav-logo .logo-text {
@@ -123,18 +120,8 @@ header {
   background: var(--secondary-color);
 }
 
-#menu-close-button,
-#menu-open-button {
+.navbar :where(#menu-close-button, #menu-open-button) {
   display: none;
-}
-#menu-open-button {
-  margin-left: auto;
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: var(--white-color);
-  cursor: pointer;
-  z-index: 2;
 }
 
 .hero-section {
@@ -528,7 +515,6 @@ header {
     --font-size-xl: 1.5rem;
     --font-size-xll: 1.8rem;
   }
-
   #menu-close-button,
   #menu-open-button {
     display: block;
@@ -543,8 +529,32 @@ header {
 
   #menu-open-button {
     color: var(--white-color);
+    margin-left: auto;
   }
 
+  .navbar :where(#menu-close-button, #menu-open-button) {
+    display: block;
+    font-size: var(--font-size-1);
+  }
+
+  .nav-logo {
+    position: absolute;
+    margin-left: -350px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
   .nav-menu {
     position: fixed;
     left: -300px;

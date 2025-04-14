@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 window.addEventListener("load", function () {
   const video = document.getElementById("bg-video");
 
