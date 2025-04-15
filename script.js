@@ -40,10 +40,10 @@ window.addEventListener("load", function () {
   }
 });
 
-const swiper = new Swiper(".slide-wrapper", {
+const swiper = new Swiper(".swiper", {
   loop: true,
   spaceBetween: 25,
-  grabCursor: 25,
+  grabCursor: true,
 
   // If we need pagination
   pagination: {
@@ -59,10 +59,10 @@ const swiper = new Swiper(".slide-wrapper", {
   },
   //responsive breakpoints
   breakpoints: {
-    0: {
+    640: {
       slidesPerView: 1,
     },
-    768: {
+    900: {
       slidesPerView: 2,
     },
     1024: {
