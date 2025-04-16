@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll(".nav-menu .nav-link");
   const menuOpenButton = document.querySelector("#menu-open-button");
   const menuCloseButton = document.querySelector("#menu-close-button");
   const body = document.body;
@@ -10,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuCloseButton.addEventListener("click", () => {
       body.classList.remove("show-mobile-menu");
+    });
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => menuOpenButton());
     });
   }
 });

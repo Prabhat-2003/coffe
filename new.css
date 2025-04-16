@@ -123,6 +123,23 @@ header {
 .navbar :where(#menu-close-button, #menu-open-button) {
   display: none;
 }
+/* .signin{
+  background: transparent;
+  border: none;
+}
+.signup{
+  border-radius: 5px;
+  margin-left: 15px;
+  padding: 10px 26px;
+  border: 2px solid transparent;
+  color: var(--primary-color);
+  border-radius: var(--border-radius-m);
+  background: var(--secondary-color);
+  font-weight: var(--font-weight-medium);
+  transition: 0.3s ease;
+
+} */
+/* Hero section */
 
 .hero-section {
   min-height: 100vh;
@@ -209,7 +226,7 @@ header {
   margin-right: 30px;
 }
 .about-section {
-  padding: 120px 0;
+  padding: 260px 0;
   background: var(--light-pink-color);
 }
 .about-section .section-content {
@@ -384,7 +401,7 @@ header {
 .swiper-button-prev {
   margin-top: -50px;
   color: var(--secondary-color);
-  transition: 0.2s ease;
+  transition: 0.2s ease;;
 }
 
 .swiper-button-next:hover,
@@ -515,6 +532,7 @@ header {
     max-width: 400px;
     margin: 0 auto;
   }
+ 
 }
 
 @media screen and (max-width: 900px) {
@@ -609,7 +627,7 @@ header {
   }
   .about-section .section-content {
     gap: 70px;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .about-section .about-image-wrapper .about-image {
     width: 100%;
