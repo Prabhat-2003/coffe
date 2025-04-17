@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:wght@400;500;600;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -93,20 +93,26 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px;
+  max-width: 100%;
 }
 
 .nav-logo .logo-text {
   color: var(--white-color);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
+  font-family: "Lobster", sans-serif;
+  font-style: normal;
 }
 
 .nav-menu {
   display: flex;
-  gap: 10px;
+  gap: 2rem;
   z-index: 1;
+  margin-right: -600px;
+  align-items: center;
+  padding:10px;
+  position: relative;
 }
-
 .nav-menu .nav-link {
   padding: 10px 18px;
   color: var(--white-color);
@@ -123,22 +129,25 @@ header {
 .navbar :where(#menu-close-button, #menu-open-button) {
   display: none;
 }
-/* .signin{
+.signin{
   background: transparent;
-  border: none;
-}
-.signup{
-  border-radius: 5px;
-  margin-left: 15px;
   padding: 10px 26px;
   border: 2px solid transparent;
-  color: var(--primary-color);
+  color: var(--dark-color);
+  border-radius: var(--border-radius-m);
+  font-weight: var(--font-weight-medium);
+  transition: 0.3s ease;
+}
+.signup{
+  padding: 10px 26px;
+  border: 2px solid transparent;
+  color: var(--dark-color);
   border-radius: var(--border-radius-m);
   background: var(--secondary-color);
   font-weight: var(--font-weight-medium);
   transition: 0.3s ease;
 
-} */
+}
 /* Hero section */
 
 .hero-section {
@@ -188,13 +197,13 @@ header {
 }
 
 .hero-details .button:hover,
-.hero-details .contact-us {
+.hero-details .contact-us ,.signup:hover ,.signin{
   color: var(--white-color);
   border-color: var(--white-color);
   background: transparent;
 }
 
-.hero-details .contact-us:hover {
+.hero-details .contact-us:hover,.signin:hover {
   color: var(--primary-color);
   border-color: var(--secondary-color);
   background: var(--secondary-color);
@@ -485,7 +494,7 @@ header {
   background: var(--primary-color);
   border-radius: var(--border-radius-m);
   border: 1px solid var(--primary-color);
-  transition: 0.3 ease;
+  transition: 0.3s ease;
 }
 .submit-button:hover {
   color: var(--primary-color);
@@ -505,7 +514,7 @@ header {
 
 .footer-section :where(.copyright-text, .social-link, .policy-link) {
   color: var(--white-color);
-  transition: 0.2 ease;
+  transition: 0.2s ease;
 }
 .social-link-list {
   display: flex;
@@ -563,14 +572,13 @@ header {
     display: block;
     font-size: var(--font-size-1);
   }
-
   .nav-logo {
     position: absolute;
-    margin-left: -300px;
+    left: 20px;
+    top: 20px;
     max-width: 100%;
-    overflow: hidden;
   }
-
+  
   * {
     margin: 0;
     padding: 0;
@@ -598,7 +606,6 @@ header {
   body.show-mobile-menu .nav-menu {
     left: 0;
   }
-
   .nav-menu .nav-link {
     color: var(--dark-color);
     display: block;
