@@ -620,6 +620,23 @@ header {
     margin-top: 17px;
     font-size: var(--font-size-1);
   }
+    .auth-buttons {
+      position: absolute;
+      top: 15px;
+      right: 70px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      z-index: 1000;
+    }
+  
+    .signin,.signup{
+      padding: 6px 14px;
+      font-size: 11px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  
   .hero-section .section-content {
     gap: 50px;
     text-align: center;
