@@ -132,6 +132,7 @@ header {
 .signin{
   background: transparent;
   padding: 10px 26px;
+  font-size: 12px;
   border: 2px solid transparent;
   color: var(--dark-color);
   border-radius: var(--border-radius-m);
@@ -140,6 +141,7 @@ header {
 }
 .signup{
   padding: 10px 26px;
+  font-size: 12px;
   border: 2px solid transparent;
   color: var(--dark-color);
   border-radius: var(--border-radius-m);
@@ -153,6 +155,7 @@ header {
 .hero-section {
   min-height: 100vh;
 }
+
 
 .hero-section .section-content {
   display: flex;
@@ -599,8 +602,13 @@ header {
     flex-direction: column;
     align-items: center;
     padding-top: 100px;
-    background: var(--white-color);
+    /* background: var(--white-color); */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease;
+    z-index: 999;
   }
 
   body.show-mobile-menu .nav-menu {
