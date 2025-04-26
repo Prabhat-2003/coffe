@@ -129,9 +129,10 @@ header {
 .navbar :where(#menu-close-button, #menu-open-button) {
   display: none;
 }
+
 .signin{
   background: transparent;
-  padding: 10px 26px;
+  padding: 8px 17px;
   font-size: 12px;
   border: 2px solid transparent;
   color: var(--dark-color);
@@ -140,7 +141,7 @@ header {
   transition: 0.3s ease;
 }
 .signup{
-  padding: 10px 26px;
+  padding: 8px 17px;
   font-size: 12px;
   border: 2px solid transparent;
   color: var(--dark-color);
@@ -563,7 +564,7 @@ header {
   #menu-close-button {
     position: absolute;
     right: 30px;
-    top: 30px;
+    top: 70px;
   }
 
   #menu-open-button {
@@ -622,17 +623,17 @@ header {
   }
     .auth-buttons {
       position: absolute;
-      top: 15px;
-      right: 70px;
+      top: 20px;
       display: flex;
       flex-direction: row;
       gap: 10px;
       z-index: 1000;
+      left: 61%;
     }
   
     .signin,.signup{
-      padding: 6px 14px;
-      font-size: 11px;
+      padding: 5px 14px;
+      font-size: 9px;
       border-radius: 20px;
       cursor: pointer;
     }
