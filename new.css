@@ -563,8 +563,9 @@ header {
 
   #menu-close-button {
     position: absolute;
-    right: 30px;
-    top: 70px;
+    right:45px;
+    top: 60px;
+    color: #000;
   }
 
   #menu-open-button {
