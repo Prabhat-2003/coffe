@@ -30,7 +30,10 @@
             <button id="menu-close-button">
               <i class="fas fa-times"></i>
             </button>
-
+             
+            <a href="/locations" class="find-store-link">
+    <i class="fas fa-map-marker-alt"></i> Find a Store
+  </a>
             <li class="nav-item">
               <a href="#" class="nav-link">Home</a>
             </li>
@@ -149,18 +152,25 @@
     </div>
 
     <div class="popup-overlay" id="contact-popup">
-      <div class="popup-box">
-        <button class="close-btn">×</button>
-        <form id="contact-form">
-          <h3>Contact Us</h3>
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-    </div>
-    </div>
-
+  <div class="popup-box">
+    <button class="close-btn">×</button>
+    <form id="contact-form">
+      <h3>Get In Touch</h3>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" />
+      <select name="subject" required>
+        <option value="" disabled selected>Select Subject</option>
+        <option value="general">General Inquiry</option>
+        <option value="feedback">Feedback</option>
+        <option value="complaint">Complaint</option>
+        <option value="other">Other</option>
+      </select>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
     <main>
       <section class="about-section" id="about">
         <div class="section-content">
@@ -191,72 +201,7 @@
         </div>
       </section>
     
-      <!-- Menu section -->
-      <!-- <section class="menu-section" id="menu">
-        <h2 class="section-titl">Our Menu</h2>
-        <div class="section-content">
-          <ul class="menu-list">
-            <li class="menu-item">
-              <img
-                src="images/coff3.png"
-                alt="Hot Beverages"
-                class="menu-image"
-              />
-              <h3 class="name">Hot Beverages</h3>
-              <p class="text">
-                Wide range of steaming hot coffee to make you fresh and light.
-              </p>
-            </li>
-            <li class="menu-item">
-              <img
-                src="images/food1.png"
-                alt="Special Combo"
-                class="menu-image"
-              />
-              <h3 class="name">Special Combo</h3>
-              <p class="text">
-                Wide range of steaming hot coffee to make you fresh and light.
-              </p>
-            </li>
-            <li class="menu-item">
-              <img
-                src="images/cold.png"
-                alt="Cold Beverages"
-                class="menu-image"
-              />
-              <h3 class="name">Cold Beverages</h3>
-              <p class="text">
-                Creamy and frothy cold coffee to make you cool.
-              </p>
-            </li>
-            <li class="menu-item">
-              <img
-                src="images/reff1.png"
-                alt="Refreshment"
-                class="menu-image"
-              />
-              <h3 class="name">Refreshment</h3>
-              <p class="text">
-                Fruit and icy refreshing drink to make feel refresh.
-              </p>
-            </li>
-            <li class="menu-item">
-              <img src="images/reff.png" alt="Desserts" class="menu-image" />
-              <h3 class="name">Desserts</h3>
-              <p class="text">
-                Wide range of steaming hot coffee to make you fresh and light.
-              </p>
-            </li>
-            <li class="menu-item">
-              <img src="images/food.png" alt="Food" class="menu-image" />
-              <h3 class="name">Food</h3>
-              <p class="text">
-                Wide range of food to make you fresh and energytic.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section> -->
+     
       <!-- Order Menu Section -->
 <section class="order-menu-section" id="order-menu">
   <h2 class="section-tilll">Our Products</h2>
@@ -302,7 +247,7 @@
           <img src="images/food1.png" alt="Iced Coffee">
         </div>
         <div class="product-details">
-          <h3>Iced Coffee</h3>
+          <h3>Coffee with meal</h3>
           <p class="price">$4.00</p>
           <div class="quantity-controls">
             <button class="quantity-btn minus">-</button>
@@ -318,7 +263,7 @@
           <img src="images/food.png" alt="Iced Coffee">
         </div>
         <div class="product-details">
-          <h3>Iced Coffee</h3>
+          <h3>Chilli Cheese Toast</h3>
           <p class="price">$7.00</p>
           <div class="quantity-controls">
             <button class="quantity-btn minus">-</button>
@@ -334,7 +279,7 @@
           <img src="images/coff2.png" alt="Iced Coffee">
         </div>
         <div class="product-details">
-          <h3>Iced Coffee</h3>
+          <h3>Hot Coffee</h3>
           <p class="price">$2.00</p>
           <div class="quantity-controls">
             <button class="quantity-btn minus">-</button>
@@ -350,7 +295,7 @@
           <img src="images/food2.png" alt="Iced Coffee">
         </div>
         <div class="product-details">
-          <h3>Iced Coffee</h3>
+          <h3>Desserts</h3>
           <p class="price">$3.25</p>
           <div class="quantity-controls">
             <button class="quantity-btn minus">-</button>
