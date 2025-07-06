@@ -266,3 +266,119 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('order-menu').scrollIntoView({ behavior: 'smooth' });
   });
 });
+// Add this at the top of script.js
+const API_BASE_URL = "http://localhost:5000/api";
+
+// Update the handleForm function
+const handleForm = (id, endpoint) => {
+  const form = document.getElementById(id);
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch(`${API_BASE_URL}${endpoint}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Request failed");
+      }
+
+      const data = await res.json();
+      alert(data.message || "Success!");
+      form.reset();
+      form.closest(".popup-overlay").classList.remove("active");
+      
+      // For signin, store user in localStorage
+      if (endpoint === "/auth/signin") {
+        localStorage.setItem("currentUser", JSON.stringify(data.user));
+        updateAuthUI();
+      }
+    } catch (err) {
+      alert(err.message || "An error occurred");
+    }
+  });
+};
+
+// Add auth state management
+function updateAuthUI() {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const authButtons = document.querySelector(".buttons");
+  
+  if (currentUser) {
+    authButtons.innerHTML = `
+      <button class="signin" id="logout-btn">Logout</button>
+      <span class="user-greeting">Hi, ${currentUser.name}</span>
+    `;
+    document.getElementById("logout-btn").addEventListener("click", logout);
+  } else {
+    authButtons.innerHTML = `
+      <button class="signin" data-popup="signin-popup">Sign In</button>
+      <button class="signup" data-popup="signup-popup">Sign Up</button>
+    `;
+    // Reattach event listeners to new buttons
+    document.querySelector("[data-popup='signin-popup']")
+      .addEventListener("click", () => document.getElementById("signin-popup").classList.add("active"));
+    document.querySelector("[data-popup='signup-popup']")
+      .addEventListener("click", () => document.getElementById("signup-popup").classList.add("active"));
+  }
+}
+
+function logout() {
+  localStorage.removeItem("currentUser");
+  updateAuthUI();
+}
+
+// Initialize auth UI on load
+document.addEventListener("DOMContentLoaded", () => {
+  updateAuthUI();
+  
+  // Update order form submission
+  const orderForm = document.getElementById("order-form");
+  if (orderForm) {
+    orderForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      
+      if (!currentUser) {
+        alert("Please sign in to place an order");
+        document.getElementById("signin-popup").classList.add("active");
+        return;
+      }
+
+      const formData = new FormData(orderForm);
+      const payload = {
+        name: formData.get("name"),
+        address: formData.get("address"),
+        items: formData.get("items").split(",").map(item => item.trim()),
+        total: document.getElementById("total-amount").textContent
+      };
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/order`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        
+        if (!res.ok) throw new Error("Order failed");
+        
+        const data = await res.json();
+        alert(`Order successful! Your order ID: ${data.orderId}`);
+        orderForm.reset();
+        document.querySelector(".cart-items").innerHTML = "";
+        document.getElementById("total-amount").textContent = "0.00";
+        cart = [];
+      } catch (err) {
+        alert(err.message || "Order failed");
+      }
+    });
+  }
+});
