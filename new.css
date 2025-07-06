@@ -110,7 +110,7 @@ header {
   display: flex;
   gap: 2rem;
   z-index: 1;
-  margin-right: -600px;
+  margin-right: 0px;
   align-items: center;
   padding:10px;
   position: relative;
@@ -1083,6 +1083,7 @@ header {
     border-radius: 20px;
     color: var(--white-color);
   }
+  
 
   /* Product Grid Adjustments */
   .product-grid {
