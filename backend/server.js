@@ -113,13 +113,67 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-app.listen(config.port, () => {
-  console.log(`
-  🚀 Server started
-  --------------------------
-  Mode: ${config.env}
-  Port: ${config.port}
-  Data: ${config.dataPath}
-  URL: http://localhost:${config.port}
-  `);
-});
+// app.listen(config.port, () => {
+//   console.log(`
+//   🚀 Server started
+//   --------------------------
+//   Mode: ${config.env}
+//   Port: ${config.port}
+//   Data: ${config.dataPath}
+//   URL: http://localhost:${config.port}
+//   `);
+// });
+// Replace the last part of your server.js with this:
+
+async function startServer() {
+  try {
+    const port = await getAvailablePort(config.port);
+    const server = app.listen(port, () => {
+      console.log(`
+      🚀 Server started
+      --------------------------
+      Mode: ${config.env}
+      Port: ${port}
+      Data: ${config.dataPath}
+      URL: http://localhost:${port}
+      `);
+    });
+
+    // Graceful shutdown
+    process.on('SIGTERM', () => {
+      console.log('SIGTERM received. Shutting down gracefully...');
+      server.close(() => {
+        console.log('Server closed');
+        process.exit(0);
+      });
+    });
+
+    process.on('SIGINT', () => {
+      console.log('SIGINT received. Shutting down gracefully...');
+      server.close(() => {
+        console.log('Server closed');
+        process.exit(0);
+      });
+    });
+
+  } catch (err) {
+    console.error('Failed to start server:', err);
+    process.exit(1);
+  }
+}
+
+// Helper function to find available port
+async function getAvailablePort(desiredPort) {
+  const net = await import('net');
+  return new Promise((resolve, reject) => {
+    const server = net.createServer();
+    server.unref();
+    server.on('error', reject);
+    server.listen({ port: desiredPort }, () => {
+      const { port } = server.address();
+      server.close(() => resolve(port));
+    });
+  });
+}
+
+startServer();

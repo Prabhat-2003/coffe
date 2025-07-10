@@ -53,6 +53,7 @@
               <a href="#contact" class="nav-link">Contact</a>
             </li>
           </ul>
+          
          <div class="buttons">
             <button class="signin" data-popup="signup-popup">Sign Up</button>
             <button class="signup" data-popup="signin-popup">Sign In</button>
@@ -139,7 +140,7 @@
 </div>
 
 
-    <div class="popup-overlay" id="order-popup">
+    <!-- <div class="popup-overlay" id="order-popup">
       <div class="popup-box">
         <button class="close-btn">×</button>
         <form id="order-form">
@@ -150,7 +151,7 @@
           <button type="submit">Order Now</button>
         </form>
       </div>
-    </div>
+    </div> -->
 
     <div class="popup-overlay" id="contact-popup">
   <div class="popup-box">
@@ -309,7 +310,134 @@
       
 
     </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Your existing page content here -->
     
+    <!-- Order Popup -->
+    <div class="popup-overlay" id="order-popup">
+        <div class="popup-box">
+            <div class="popup-header">
+                <h3>Place Your Order</h3>
+                <button class="close-popup-btn">&times;</button>
+            </div>
+            
+            <form id="order-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <textarea name="address" placeholder="Delivery Address" required></textarea>
+                    <textarea name="instructions" placeholder="Special Instructions (optional)"></textarea>
+                </div>
+                
+                <div class="order-summary">
+                    <h4>Your Order Summary</h4>
+                    <div class="order-items" id="order-items-display">
+                        <!-- Items will be added here by JavaScript -->
+                    </div>
+                    <div class="cart-total">
+                      Total: $<span>0.00</span>
+                    </div>
+                    <div class="order-total">
+                        <span>Total Amount:</span>
+                        <span class="total-amount">$<span id="total-amount-display">0.00</span></span>
+                    </div>
+                </div>
+                
+                <div class="payment-section">
+                    <h4>Select Payment Method</h4>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cash" checked>
+                            <div class="payment-content">
+                                <span class="payment-icon">💰</span>
+                                <div class="payment-info">
+                                    <span class="payment-label">Cash on Delivery</span>
+                                    <span class="payment-desc">Pay when you receive your order</span>
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card">
+                            <div class="payment-content">
+                                <span class="payment-icon">💳</span>
+                                <div class="payment-info">
+                                    <span class="payment-label">Credit/Debit Card</span>
+                                    <span class="payment-desc">Visa, Mastercard, etc.</span>
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal">
+                            <div class="payment-content">
+                                <span class="payment-icon">🔵</span>
+                                <div class="payment-info">
+                                    <span class="payment-label">PayPal</span>
+                                    <span class="payment-desc">Secure online payments</span>
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="upi">
+                            <div class="payment-content">
+                                <span class="payment-icon">📱</span>
+                                <div class="payment-info">
+                                    <span class="payment-label">UPI Payment</span>
+                                    <span class="payment-desc">Google Pay, PhonePe, etc.</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <!-- Card Payment Details -->
+                    <div class="payment-details" id="card-details">
+                        <div class="form-row">
+                            <input type="text" name="card-number" placeholder="Card Number" maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="card-name" placeholder="Name on Card">
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="card-expiry" placeholder="MM/YY" maxlength="5">
+                            <input type="text" name="card-cvv" placeholder="CVV" maxlength="4">
+                        </div>
+                    </div>
+                    
+                    <!-- UPI Payment Details -->
+                    <div class="payment-details" id="upi-details">
+                        <div class="form-row">
+                            <input type="text" name="upi-id" placeholder="UPI ID (e.g., name@upi)">
+                        </div>
+                        <p class="note">Complete payment using your UPI app when redirected</p>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="order-btn">Place Order ($<span id="order-btn-total">0.00</span>)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+      
+      <button type="submit">Order Now</button>
+    </form>
+  </div>
+</div>
     <div class="cart-section">
       <h3>Your Order</h3>
       <div class="cart-items">

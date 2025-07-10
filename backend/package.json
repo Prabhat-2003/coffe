@@ -1,29 +1,51 @@
 {
-  "name": "coffee-shop",
+  "name": "coffee-shop-backend",
   "version": "1.0.0",
-  "description": "Fullstack Coffee Shop Application",
+  "description": "Coffee Shop Backend API with Express",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon --watch . --ext js,json server.js",
-    "test": "jest --watchAll",
-    "prepare": "husky install"
+    "start": "NODE_ENV=production node server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "test": "NODE_ENV=test jest --watchAll --coverage",
+    "test:ci": "NODE_ENV=test jest --ci --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install",
+    "migrate": "node ./database/migrations.js"
   },
   "dependencies": {
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
     "express-validator": "^7.0.1",
-    "uuid": "^9.0.1"
+    "helmet": "^7.1.0",
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^16.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "faker": "^7.6.0",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "supertest": "^6.3.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/"
+    ]
   }
 }

@@ -1,0 +1,46 @@
+{
+  "name": "coffee-shop-frontend",
+  "version": "1.0.0",
+  "description": "Coffee Shop Fullstack Application",
+  "private": true,
+  "scripts": {
+    "frontend": "vite",
+    "backend": "cd backend && npm run dev",
+    "dev": "concurrently -n \"FRONTEND,BACKEND\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run frontend\" \"npm run backend\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "cd backend && npm test",
+    "start": "npm run dev",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,json}\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "vite": "^5.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.2.5",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
